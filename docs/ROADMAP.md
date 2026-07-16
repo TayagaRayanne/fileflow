@@ -1,60 +1,81 @@
-# Roadmap
+# 🗺️ Roadmap - FileFlow
 
-## Sprint 1 — Infraestrutura
+## ✅ Sprint 1 - Estrutura Inicial
+
+Status: Concluída
+
+### Entregas
 
 - [x] Estrutura do projeto
 - [x] Ambiente virtual
-- [x] .gitignore
-- [x] Config Loader
-- [x] Modelo de configuração
+- [x] Configuração do Git
+- [x] Organização das pastas
+- [x] Criação do ConfigLoader
+- [x] Criação do AppConfig
 
 ---
 
-## Sprint 2
+## ✅ Sprint 2 - Sistema de Logs
 
-- [ ] Logger
-- [ ] Tratamento de exceções
-- [ ] Constantes
-- [ ] Melhorias no Config Loader
+Status: Concluída
 
----
+### Entregas
 
-## Sprint 3
-
-- [ ] Organização manual de arquivos
-
----
-
-## Sprint 4
-
-- [ ] Classificação automática
+- [x] Implementação do Logger
+- [x] Integração com o main.py
+- [x] Criação automática da pasta logs
+- [x] Geração do arquivo fileflow.log
+- [x] Code Review
+- [x] Documentação
 
 ---
 
-## Sprint 5
+## 🔄 Sprint 3 - Organização de Arquivos
 
-- [ ] Tratamento de duplicados
+Status: Não iniciada
+
+### Objetivos
+
+- [ ] Organizar arquivos automaticamente
+- [ ] Ler diretório de origem
+- [ ] Criar pastas quando necessário
+- [ ] Mover arquivos
+- [ ] Registrar todas as operações no log
 
 ---
 
-## Sprint 6
+## ⏳ Sprint 4 - Classificação Inteligente
+
+- [ ] Classificação por extensão
+- [ ] Regras configuráveis
+
+---
+
+## ⏳ Sprint 5 - Relatórios
+
+- [ ] Relatório em CSV
+- [ ] Estatísticas
+- [ ] Tempo de execução
+
+---
+
+## ⏳ Sprint 6 - Monitoramento em Tempo Real
 
 - [ ] Watchdog
+- [ ] Execução contínua
 
 ---
 
-## Sprint 7
+## ⏳ Sprint 7 - Arquivos Duplicados
 
-- [ ] Relatórios
+- [ ] Identificação
+- [ ] Tratamento
+- [ ] Relatório
 
 ---
 
-## Sprint 8
+## ⏳ Sprint 8 - Finalização
 
 - [ ] Testes
-
----
-
-## Sprint 9
-
-- [ ] Documentação Final
+- [ ] Documentação final
+- [ ] Release 1.0
