@@ -1,5 +1,6 @@
 from core.config_loader import ConfigLoader
 from core.logger import get_logger
+from services.organizer import Organizer
 
 
 def main():
@@ -13,10 +14,18 @@ def main():
     loader = ConfigLoader()
     config = loader.load()
 
+    # Cria uma instância do organizador utilizando as configurações carregadas.
+    organizer = Organizer(config)
+
+    # Obtém todos os arquivos encontrados na pasta de origem.
+    files = organizer.list_files()
+
     # Confirma que as configurações foram carregadas com sucesso.
     logger.info("Configurações carregadas com sucesso.")
 
-    print(config)
+    # Exibe os arquivos encontrados apenas durante o desenvolvimento.
+    for file in files:
+        print(file.name)
 
 
 if __name__ == "__main__":
