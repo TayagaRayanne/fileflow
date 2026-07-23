@@ -17,15 +17,11 @@ def main():
     # Cria uma instância do organizador utilizando as configurações carregadas.
     organizer = Organizer(config)
 
-    # Obtém todos os arquivos encontrados na pasta de origem.
-    files = organizer.list_files()
-
     # Confirma que as configurações foram carregadas com sucesso.
     logger.info("Configurações carregadas com sucesso.")
 
-    # Exibe os arquivos encontrados apenas durante o desenvolvimento.
-    for file in files:
-        print(file.name)
+    # Exibe informações dos arquivos encontrados.
+    organizer.show_files_info()
 
 
 if __name__ == "__main__":

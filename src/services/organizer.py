@@ -1,4 +1,5 @@
 from pathlib import Path
+from services.classifier import Classifier
 
 
 class Organizer:
@@ -18,7 +19,6 @@ class Organizer:
         # Converte o caminho configurado em um objeto Path para facilitar
         # a manipulação de arquivos e diretórios.
         source_folder = Path(self.config.source_folder)
-
         files = []
 
         # Percorre todos os itens existentes na pasta.
@@ -29,3 +29,31 @@ class Organizer:
                 files.append(item)
 
         return files
+    
+    def show_files_info(self):
+        """
+        Exibe informações básicas dos arquivos encontrados e sua categoria.
+        Utilizado durante o desenvolvimento para validar a classificação.
+        """
+
+        files = self.list_files()
+
+        for file in files:
+
+            if Classifier.is_image(file.suffix):
+                category = "Imagem"
+
+            elif Classifier.is_document(file.suffix):
+                category = "Documento"
+
+            elif Classifier.is_spreadsheet(file.suffix):
+                category = "Planilha"
+
+            else:
+                category = "Outros"
+
+            print(f"Arquivo: {file.name}")
+            print(f"Nome: {file.stem}")
+            print(f"Extensão: {file.suffix}")
+            print(f"Categoria: {category}")
+            print("-" * 40)
