@@ -19,5 +19,6 @@ class ConfigLoader:
             source_folder=data["source_folder"],
             destination_folder=data["destination_folder"],
             ignored_extensions=data["ignored_extensions"],
+            ignored_folders=data["ignored_folders"],
             log_level=data["log_level"],
         )

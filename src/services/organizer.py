@@ -7,6 +7,19 @@ class Organizer:
         # Armazena as configurações da aplicação para que possam ser
         # utilizadas pelos demais métodos da classe.
         self.config = config
+        
+    def is_ignored_folder(self, folder: Path) -> bool:
+        """
+        Verifica se uma pasta está configurada para ser ignorada.
+
+        Args:
+            folder (Path): Pasta a ser verificada.
+
+        Returns:
+            bool: True se a pasta deve ser ignorada.
+        """
+        # Verifica se o nome da pasta está na lista de pastas protegidas.
+        return folder.name in self.config.ignored_folders
 
     def list_files(self):
         """
@@ -24,7 +37,11 @@ class Organizer:
         # Percorre todos os itens existentes na pasta.
         for item in source_folder.iterdir():
 
-            # Adiciona apenas arquivos à lista, ignorando diretórios.
+            # Ignora pastas protegidas.
+            if item.is_dir() and self.is_ignored_folder(item):
+                continue
+
+            # Adiciona apenas arquivos à lista.
             if item.is_file():
                 files.append(item)
 

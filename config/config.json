@@ -2,5 +2,6 @@
     "source_folder": "",
     "destination_folder": "",
     "ignored_extensions": [],
+    "ignored_folders": [],
     "log_level": "INFO"
 }

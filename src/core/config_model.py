@@ -10,4 +10,5 @@ class AppConfig:
     source_folder: str
     destination_folder: str
     ignored_extensions: list[str]
+    ignored_folders: list[str]
     log_level: str
