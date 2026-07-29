@@ -1,9 +1,7 @@
 class Classifier:
     """
-    As extensões são armazenadas em um conjunto (set) porque nosso objetivo é
-    apenas verificar se uma extensão pertence a determinada categoria.
-    O uso de {} torna essa consulta mais eficiente do que uma lista ([]),
-    principalmente à medida que a quantidade de extensões aumenta.
+    Responsável por classificar arquivos de acordo com sua extensão
+    e informar a pasta onde eles deverão ser armazenados.
     """
 
     IMAGE_EXTENSIONS = {
@@ -28,45 +26,53 @@ class Classifier:
         ".xlsx",
         ".csv",
     }
-    
+
     @classmethod
-    def is_image(cls, extension: str) -> bool:
+    def classify(cls, extension: str) -> str:
         """
-        Verifica se a extensão pertence à categoria de imagens.
+        Retorna a categoria correspondente à extensão informada.
 
         Args:
             extension (str): Extensão do arquivo.
 
         Returns:
-            bool: True se for uma imagem, False caso contrário.
+            str: Categoria do arquivo.
         """
 
-        return extension.lower() in cls.IMAGE_EXTENSIONS
-    
+        extension = extension.lower()
+
+        if extension in cls.IMAGE_EXTENSIONS:
+            return "Imagem"
+
+        if extension in cls.DOCUMENT_EXTENSIONS:
+            return "Documento"
+
+        if extension in cls.SPREADSHEET_EXTENSIONS:
+            return "Planilha"
+
+        return "Outros"
+
     @classmethod
-    def is_document(cls, extension: str) -> bool:
+    def get_folder_name(cls, extension: str) -> str:
         """
-        Verifica se a extensão pertence à categoria de documentos.
+        Retorna o nome da pasta de destino para a extensão informada.
 
         Args:
             extension (str): Extensão do arquivo.
 
         Returns:
-            bool: True se for um documento, False caso contrário.
+            str: Nome da pasta de destino.
         """
 
-        return extension.lower() in cls.DOCUMENT_EXTENSIONS
+        extension = extension.lower()
 
-    @classmethod
-    def is_spreadsheet(cls, extension: str) -> bool:
-        """
-        Verifica se a extensão pertence à categoria de planilhas.
+        if extension in cls.IMAGE_EXTENSIONS:
+            return "Imagens"
 
-        Args:
-            extension (str): Extensão do arquivo.
+        if extension in cls.DOCUMENT_EXTENSIONS:
+            return "Documentos"
 
-        Returns:
-            bool: True se for uma planilha, False caso contrário.
-        """
+        if extension in cls.SPREADSHEET_EXTENSIONS:
+            return "Planilhas"
 
-        return extension.lower() in cls.SPREADSHEET_EXTENSIONS
+        return "Outros"
