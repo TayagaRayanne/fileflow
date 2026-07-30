@@ -21,7 +21,7 @@ def main():
     logger.info("Configurações carregadas com sucesso.")
 
     # Exibe informações dos arquivos encontrados.
-    organizer.show_files_info()
+    organizer.organize_files()
 
 
 if __name__ == "__main__":

@@ -2,42 +2,56 @@
 
 Sistema de automação desenvolvido em Python para organizar arquivos de forma inteligente.
 
-O projeto nasceu com o objetivo de automatizar uma tarefa comum do dia a dia: manter pastas organizadas automaticamente. Durante seu desenvolvimento, ele está sendo estruturado seguindo boas práticas de engenharia de software, arquitetura em camadas e código limpo.
-
-Além de resolver um problema real, o FileFlow também serve como projeto de portfólio para demonstrar conhecimentos em automação (RPA), organização de código, documentação e desenvolvimento em Python.
+O FileFlow nasceu com o objetivo de automatizar uma tarefa comum do dia a dia: manter diretórios organizados automaticamente. Durante seu desenvolvimento, o projeto segue boas práticas de engenharia de software, arquitetura em camadas e Clean Code, servindo também como projeto de portfólio.
 
 ---
 
 # 🚀 Objetivos
 
 - Automatizar a organização de arquivos.
-- Criar uma arquitetura escalável.
+- Construir uma arquitetura escalável.
 - Aplicar boas práticas de desenvolvimento.
 - Simular um projeto utilizado em ambiente corporativo.
-- Construir um projeto sólido para portfólio.
+- Desenvolver um projeto completo para portfólio.
+
+---
+
+# 📌 Status do Projeto
+
+🚧 Em desenvolvimento
+
+Atualmente o FileFlow já é capaz de:
+
+- Ler configurações via JSON;
+- Validar pastas de origem e destino;
+- Classificar arquivos por categoria;
+- Criar automaticamente a estrutura de destino;
+- Gerar nomes únicos para evitar sobrescritas;
+- Preparar toda a estrutura necessária para organizar arquivos.
+
+A movimentação definitiva dos arquivos será implementada na próxima sprint.
 
 ---
 
 # ✨ Funcionalidades
 
-### ✅ Implementadas
-
-- Leitura de configurações via JSON
-- Modelagem utilizando `dataclass`
-- Sistema de logs da aplicação
-- Estrutura modular do projeto
-
-### 🔜 Próximas
-
-- Organização automática de arquivos
-- Classificação por extensão
-- Relatórios de execução
-- Monitoramento em tempo real
-- Tratamento de arquivos duplicados
+| Funcionalidade | Status |
+|----------------|:------:|
+| Leitura do arquivo de configuração | ✅ |
+| Logger da aplicação | ✅ |
+| Classificação por extensão | ✅ |
+| Organização por categorias | ✅ |
+| Criação automática das pastas | ✅ |
+| Validações de segurança | ✅ |
+| Geração de nomes únicos | ✅ |
+| Movimentação de arquivos | 🚧 |
+| Relatórios | 🔜 |
+| Watchdog | 🔜 |
+| Tratamento de duplicados | 🔜 |
 
 ---
 
-# 📁 Estrutura do projeto
+# 📁 Estrutura do Projeto
 
 ```text
 fileflow/
@@ -51,7 +65,6 @@ fileflow/
 │   └── services/
 ├── tests/
 └── README.md
-```
 
 ---
 
@@ -120,8 +133,9 @@ python src/main.py
 - [x] Estrutura inicial
 - [x] ConfigLoader
 - [x] Logger
-- [ ] Organizador
-- [ ] Classificador
+- [x] Organizador
+- [x] Classificador
+- [ ] Movimentações dos arquivos
 - [ ] Relatórios
 - [ ] Watchdog
 - [ ] Duplicados
@@ -134,10 +148,13 @@ python src/main.py
 Durante o desenvolvimento deste projeto estão sendo aplicados conceitos como:
 
 - Arquitetura em camadas
-- Organização de projetos Python
+- Programação orientada a objetos (POO)
+- Dataclasses
 - Logging
-- Programação orientada a objetos
+- Manipulação de arquivos com Pathlib
 - Clean Code
+- Tratamento de exceções
+- Organização de projetos Python
 - Boas práticas de documentação
 - Git e GitHub
 

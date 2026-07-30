@@ -25,6 +25,7 @@ class Classifier:
         ".xls",
         ".xlsx",
         ".csv",
+        ".ods",
     }
 
     @classmethod
