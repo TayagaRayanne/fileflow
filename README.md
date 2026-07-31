@@ -135,7 +135,7 @@ python src/main.py
 - [x] Logger
 - [x] Organizador
 - [x] Classificador
-- [ ] Movimentações dos arquivos
+- [x] Movimentação segura dos arquivos
 - [ ] Relatórios
 - [ ] Watchdog
 - [ ] Duplicados

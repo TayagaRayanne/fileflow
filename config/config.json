@@ -1,7 +1,10 @@
 {
     "source_folder": "",
     "destination_folder": "",
-    "ignored_extensions": [],
-    "ignored_folders": [],
-    "log_level": "INFO"
+    "ignored_folders": [
+        ".git",
+        ".venv",
+        "__pycache__",
+        "node_modules"
+    ]
 }

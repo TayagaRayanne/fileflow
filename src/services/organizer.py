@@ -1,5 +1,5 @@
 from pathlib import Path
-
+from core.logger import get_logger
 from services.classifier import Classifier
 
 
@@ -8,6 +8,7 @@ class Organizer:
         # Armazena as configurações da aplicação para que possam ser
         # utilizadas pelos demais métodos da classe.
         self.config = config
+        self.logger = get_logger()
 
     def is_ignored_folder(self, folder: Path) -> bool:
         """
@@ -114,7 +115,18 @@ class Organizer:
 
         destination = destination_root / folder_name
 
-        destination.mkdir(parents=True, exist_ok=True)
+        folder_exists = destination.exists()
+
+        destination.mkdir(
+            parents=True,
+            exist_ok=True
+        )
+
+        if not folder_exists:
+            self.logger.info(
+                "Pasta criada: %s",
+                destination
+            )
 
         return destination
     
@@ -157,24 +169,33 @@ class Organizer:
 
             counter += 1
     
-    def move_file(self, source: Path, destination: Path):
+    def move_file(self, source: Path, destination: Path) -> Path:
         """
         Move um arquivo para a pasta de destino.
 
         Args:
             source (Path): Arquivo de origem.
             destination (Path): Pasta onde o arquivo será movido.
+
+        Returns:
+            Path: Caminho final do arquivo movido.
         """
 
-        destination_file = destination / source.name
-
-        # Impede sobrescrever um arquivo existente.
-        if destination_file.exists():
-            raise FileExistsError(
-                f"O arquivo '{source.name}' já existe em '{destination}'."
-            )
+        destination_file = self.generate_unique_filename(
+            source,
+            destination
+        )
 
         source.rename(destination_file)
+        
+        self.logger.info(
+            "[MOVE] %s -> %s/%s",
+            source.name,
+            destination.name,
+            destination_file.name
+        )
+
+        return destination_file
         
     def organize_files(self):
         """
@@ -183,15 +204,34 @@ class Organizer:
 
         files = self.list_files()
 
+        # Encerra a execução caso não existam arquivos para organizar.
+        if not files:
+            self.logger.info(
+                "Nenhum arquivo encontrado para organizar."
+            )
+            return
+
+        self.logger.info(
+            "Iniciando organização de %d arquivo(s).",
+            len(files)
+        )
+
         for file in files:
 
             folder_name = Classifier.get_folder_name(file.suffix)
 
             destination = self.create_destination_folder(folder_name)
 
-            #self.move_file(file, destination)
+            destination_file = self.move_file(file, destination)
 
-            print(f"{file.name} -> {destination}")
+            print(
+                f"{file.name} -> "
+                f"{destination_file.parent.name}/{destination_file.name}"
+            )
+
+        self.logger.info(
+            "Organização concluída com sucesso."
+        )
 
     def show_files_info(self):
         """

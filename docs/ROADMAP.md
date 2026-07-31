@@ -34,11 +34,11 @@ Projeto de automação para organização inteligente de arquivos desenvolvido e
 
 ---
 
-## 🚧 Sprint 3 - Organização Inteligente
+## ✅ Sprint 3 - Organização Inteligente
 
-**Status:** Em desenvolvimento
+**Status:** Concluída
 
-### Entregas concluídas
+### Entregas
 
 - [x] Leitura da pasta de origem
 - [x] Listagem dos arquivos
@@ -53,16 +53,19 @@ Projeto de automação para organização inteligente de arquivos desenvolvido e
 - [x] Proteção contra destino dentro da origem
 - [x] Proteção contra origem dentro do destino
 - [x] Estrutura do método `move_file()`
-
-### Próximas entregas
-
-- [ ] Ativar movimentação dos arquivos
-- [ ] Registrar movimentações no Logger
-- [ ] Testes de arquivos duplicados
+- [x] Ativar movimentação dos arquivos
+- [x] Registrar movimentações no Logger
+- [x] Testes de arquivos duplicados
+- [x] Renomear arquivos duplicados
+- [x] Evitar sobrescrita
+- [x] Registro de criação das pastas no Logger
+- [x] Registro quando não houver arquivos para organizar
 
 ---
 
-## ⏳ Sprint 4 - Relatórios
+## 🚧 Sprint 4 - Relatórios
+
+**Status:** Em desenvolvimento
 
 - [ ] Relatório CSV
 - [ ] Estatísticas
