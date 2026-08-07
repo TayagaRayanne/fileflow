@@ -4,11 +4,12 @@ from services.classifier import Classifier
 
 
 class Organizer:
-    def __init__(self, config):
+    def __init__(self, config, report):
         # Armazena as configurações da aplicação para que possam ser
         # utilizadas pelos demais métodos da classe.
         self.config = config
         self.logger = get_logger()
+        self.report = report
 
     def is_ignored_folder(self, folder: Path) -> bool:
         """
@@ -223,6 +224,8 @@ class Organizer:
             destination = self.create_destination_folder(folder_name)
 
             destination_file = self.move_file(file, destination)
+            
+            self.report.add_file(folder_name)
 
             print(
                 f"{file.name} -> "
